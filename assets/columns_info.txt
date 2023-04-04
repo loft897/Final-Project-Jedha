@@ -1,0 +1,94 @@
+year: Year data collected
+
+month: Numeric representation of the month
+
+carrier: Carrier.
+
+carrier_name: Carrier Name.
+
+airport: Airport code.
+
+airport_name: Name of airport.
+
+arr_flights: Number of flights arriving at airport
+
+arr_del15: Number of flights more than 15 minutes late
+
+carrier_ct: Number of flights delayed due to air carrier. (e.g. no crew)
+
+weather_ct: Number of flights due to weather.
+
+nas_ct: Number of flights delayed due to National Aviation System (e.g. heavy air traffic).
+
+security_ct: Number of flights canceled due to a security breach.
+
+late_aircraft_ct: Number of flights delayed as a result of another flight on the same aircraft delayed
+
+arr_cancelled: Number of cancelled flights
+
+arr_diverted: Number of flights that were diverted
+
+arr_delay: Total time (minutes) of delayed flight.
+
+carrier_delay: Total time (minutes) of delay due to air carrier
+
+weather_delay: Total time (minutes) of delay due to inclement weather.
+
+nas_delay: Total time (minutes) of delay due to National Aviation System.
+
+security_delay: Total time (minutes) of delay as a result of a security issue .
+
+late_aircraft_delay: Total time (minutes) of delay flights as a result of a previous flight on the same airplane being late.
+
+Source Bureau of Transportation Statistics
+
+
+
+
+------------------------------------------------------ TRADUCTION FRANCAISE -----------------------------------------------------------------------
+
+
+
+year: Année de collecte des données
+
+month : représentation numérique du mois : Représentation numérique du mois
+
+transporteur : transporteur.
+
+carrier_name : Nom du transporteur.
+
+airport : Code de l'aéroport.
+
+airport_name : Nom de l'aéroport.
+
+arr_flights : Nombre de vols arrivant à l'aéroport
+
+arr_del15 : Nombre de vols ayant plus de 15 minutes de retard
+
+carrier_ct : Nombre de vols retardés en raison du transporteur aérien. (par exemple, absence d'équipage)
+
+weather_ct : Nombre de vols dus aux conditions météorologiques.
+
+nas_ct : Nombre de vols retardés en raison du système national d'aviation (par exemple, trafic aérien intense).
+
+security_ct : Nombre de vols annulés en raison d'une violation de la sécurité.
+
+late_aircraft_ct : Nombre de vols retardés en raison du retard d'un autre vol sur le même avion.
+
+arr_cancelled : Nombre de vols annulés
+
+arr_diverted : Nombre de vols détournés
+
+arr_delay : Temps total (minutes) du vol retardé.
+
+carrier_delay : Temps total (minutes) du retard dû au transporteur aérien.
+
+weather_delay : Durée totale (minutes) du retard dû aux intempéries.
+
+nas_delay : Temps total (minutes) de retard dû au système national d'aviation.
+
+security_delay : Temps total (minutes) de retard dû à un problème de sécurité.
+
+late_aircraft_delay : Temps total (minutes) de retard des vols en raison du retard d'un vol précédent sur le même avion.
+
+Source : Bureau of Transportation Statistics
