@@ -1,0 +1,91 @@
+MONTH: 			Month
+DAY_OF_MONTH: 		Day of the month (1-31)
+DAY_OF_WEEK: 		Day of the week
+OP_UNIQUE_CARRIER: 	Carrier code, matches to OP_UNIQUE_CARRIER in other files
+TAIL_NUM: 		Unique tail number, matches to TAIL_NUM in other files
+OP_CARRIER_FL_NUM: 	Flight number
+ORIGIN_AIRPORT_ID: 	Airport ID, matches to ORIGIN_AIRPORT_ID in other files
+ORIGIN: 		Origin airport abbreviation
+ORIGIN_CITY_NAME: 	Origin city name
+DEST_AIRPORT_ID: 	Destination airport ID, matches Airport ID in other files
+DEST: 			Destination airport abbreviation
+DEST_CITY_NAME: 	Destination city name
+CRS_DEP_TIME: 		Planned departure time
+DEP_TIME: 		Actual departure time
+DEP_DELAY_NEW: 		Departure delay in minutes
+DEP_DEL15:		TARGET VARIABLE Binary if delayed over 15 min, 1 is yes
+DEP_TIME_BLK:		Departure time block
+CRS_ARR_TIME:		Planned arrival time
+ARR_TIME:		Actual arrival time
+ARR_DELAY_NEW:		Arrival delay in minutes
+ARR_TIME_BLK:		Arrival time block
+CANCELLED:		Flag if flight was cancelled
+CANCELLATION_CODE:	Cancellation Code
+CRS_ELAPSED_TIME:	Flight planned elapsed time
+ACTUAL_ELAPSED_TIME:	Flight actual elapsed time
+DISTANCE:		Flight Distance in miles
+DISTANCE_GROUP:		Flight distance group
+CARRIER_DELAY:		Flag for a carrier delay
+WEATHER_DELAY:		Flag for a weather delay
+NAS_DELAY:		Flag for a NAS delay
+SECURITY_DELAY:		Flag for a security delay
+LATE_AIRCRAFT_DELAY:	Flag for a late aircraft delay
+
+
+
+
+--------------------------------------------------   TRADUCTION FRANCAISE -------------------------------------------------
+
+
+
+1
+MONTH : Mois
+DAY_OF_MONTH : Jour du mois (1-31)
+DAY_OF_WEEK : 		Jour de la semaine
+OP_UNIQUE_CARRIER : Code transporteur, correspond à OP_UNIQUE_CARRIER dans d'autres fichiers
+TAIL_NUM : Numéro de queue unique, correspond à TAIL_NUM dans d'autres fichiers
+OP_CARRIER_FL_NUM : Numéro de vol
+ORIGIN_AIRPORT_ID : ID de l'aéroport, correspond à ORIGIN_AIRPORT_ID dans d'autres fichiers
+ORIGIN : Abréviation de l'aéroport d'origine
+ORIGIN_CITY_NAME : 	Nom de la ville d'origine
+DEST_AIRPORT_ID : ID de l'aéroport de destination, correspond à l'ID de l'aéroport dans d'autres fichiers
+DEST : Abréviation de l'aéroport de destination
+DEST_CITY_NAME : 	Nom de la ville de destination
+CRS_DEP_TIME : 		Heure de départ prévue
+DEP_TIME : 		Heure de départ réelle
+DEP_DELAY_NEW : Retard de départ en minutes
+DEP_DEL15 : TARGET VARIABLE Binaire si retard de plus de 15 min, 1 est oui
+DEP_TIME_BLK : Blocage de l'heure de départ
+CRS_ARR_TIME :		Heure d'arrivée prévue
+ARR_TIME :		Heure d'arrivée réelle
+ARR_DELAY_NEW : retard à l'arrivée en minutes
+ARR_TIME_BLK : Blocage de l'heure d'arrivée
+CANCELLED :		Indicateur si le vol a été annulé
+CANCELLATION_CODE :	Code d'annulation
+CRS_ELAPSED_TIME :	Temps écoulé prévu pour le vol
+ACTUAL_ELAPSED_TIME :	Temps écoulé réel du vol
+DISTANCE : Distance du vol en miles
+DISTANCE_GROUP :		Groupe de distance du vol
+CARRIER_DELAY : Indicateur de retard du transporteur
+WEATHER_DELAY : Indicateur de retard dû aux conditions météorologiques
+NAS_DELAY : Indicateur pour un retard NAS
+SECURITY_DELAY : Indicateur d'un retard lié à la sécurité
+LATE_AIRCRAFT_DELAY : Indicateur d'un retard d'avion tardif
+
+
+
+Accuracy : l'exactitude représente le pourcentage de prédictions correctes parmi toutes les prédictions effectuées par le modèle.
+
+F1-score : le score F1 est une mesure de la précision et du rappel du modèle. Il est calculé comme une moyenne harmonique de la précision et du rappel, ce qui donne plus de poids aux valeurs basses.
+
+Precision : la précision est le nombre de vrais positifs (TP) sur le nombre total de prédictions positives (TP+FP). Elle représente la capacité du modèle à ne prédire positif que lorsque c'est réellement le cas.
+
+Recall : le rappel est le nombre de vrais positifs (TP) sur le nombre total d'exemples positifs (TP+FN). Il représente la capacité du modèle à identifier tous les exemples positifs.
+
+Le R2 score (aussi appelé coefficient de détermination) est une mesure de la qualité de l'ajustement d'un modèle de régression aux données. Il représente la proportion de la variance totale de la variable dépendante (la variable que le modèle tente de prédire) qui est expliquée par les variables indépendantes (les variables d'entrée du modèle). Le R2 score varie de 0 à 1, et une valeur plus proche de 1 indique une meilleure adéquation du modèle aux données.
+
+Le MAE (Mean Absolute Error) est la moyenne des différences absolues entre les prédictions du modèle et les valeurs réelles. Il mesure l'erreur moyenne du modèle en termes de la magnitude de l'erreur.
+
+Le MSE (Mean Squared Error) est la moyenne des carrés des différences entre les prédictions du modèle et les valeurs réelles. Il est plus sensible aux grandes erreurs que le MAE et peut être plus utile dans les cas où de grandes erreurs ont un impact disproportionné.
+
+Le RMSE (Root Mean Squared Error) est la racine carrée du MSE. Il est utile car il est exprimé dans la même unité que la variable dépendante, ce qui facilite l'interprétation.
