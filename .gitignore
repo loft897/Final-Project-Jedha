@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+assets/flights_usa_2019.csv
 # C extensions
 *.so
 
