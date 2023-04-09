@@ -41,12 +41,19 @@ async def Welcome():
 
 
 # Endpoint pour rechercher l'aeroport par son code
-@app.get("/airport/{code}")
+@app.get("/airport/")
 async def get_airport_name(code: str):
     if code.upper() in list_airports:
         return {code.upper(): list_airports[code.upper()]}
     else:
         return {"Airport not found, please check your airport code again!"}
+
+# @app.get("/airport/{code}")
+# async def get_airport_name(code: str):
+#     if code.upper() in list_airports:
+#         return {code.upper(): list_airports[code.upper()]}
+#     else:
+#         return {"Airport not found, please check your airport code again!"}
 
 
 # Endpoint pour prédire si un vol est en retard ou pas et le delai de retard
