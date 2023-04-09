@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import numpy as np
 from pydantic import BaseModel
+from fastapi import HTTPException
 import pickle
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
@@ -45,8 +46,9 @@ async def Welcome():
 async def get_airport_name(code: str):
     if code.upper() in list_airports:
         return {code.upper(): list_airports[code.upper()]}
-    # else:
-    #     return {"Airport not found, please check your airport code again!"}
+    else:
+        raise HTTPException(status_code=404, detail="Airport not found, please check your airport code again!")
+
 
 # @app.get("/airport/{code}")
 # async def get_airport_name(code: str):
