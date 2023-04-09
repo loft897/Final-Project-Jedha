@@ -38,7 +38,7 @@ LATE_AIRCRAFT_DELAY:	Flag for a late aircraft delay
 
 
 
-1
+
 MONTH : Mois
 DAY_OF_MONTH : Jour du mois (1-31)
 DAY_OF_WEEK : 		Jour de la semaine

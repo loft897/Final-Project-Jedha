@@ -4,10 +4,15 @@ from pydantic import BaseModel
 import pickle
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
+from airports import list_airports
+
 
 
 # Création de l'application FastAPI
 app = FastAPI()
+
+
+
 
 # Chargement des modèles
 with open("./ml_models/classifier.pkl", "rb") as f:
@@ -35,8 +40,16 @@ async def Welcome():
     return welcome_message
 
 
-# Endpoint pour prédire si un vol est en retard ou pas et le delai de retard
+# Endpoint pour rechercher l'aeroport par son code
+@app.get("/airport/{code}")
+async def get_airport_name(code: str):
+    if code.upper() in list_airports:
+        return {code.upper(): list_airports[code.upper()]}
+    else:
+        return {"Error": "Code aéroport inexistant"}
 
+
+# Endpoint pour prédire si un vol est en retard ou pas et le delai de retard
 @app.post("/predict")
 async def predict_delay(flight: Flight):
     # Créer un DataFrame à partir de l'objet Flight
@@ -61,4 +74,3 @@ async def predict_delay(flight: Flight):
 
     pred_delay = regressor.predict(input_data)[0]
     return {"Résultat: Il y'aurait du retard sur ce vol de ", pred_delay, " minutes."}
-
