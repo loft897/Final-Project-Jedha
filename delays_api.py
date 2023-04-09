@@ -46,7 +46,7 @@ async def get_airport_name(code: str):
     if code.upper() in list_airports:
         return {code.upper(): list_airports[code.upper()]}
     else:
-        return {"Error": "Code aéroport inexistant"}
+        return {"Airport not found, please check your airport code again!"}
 
 
 # Endpoint pour prédire si un vol est en retard ou pas et le delai de retard
