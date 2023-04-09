@@ -45,8 +45,8 @@ async def Welcome():
 async def get_airport_name(code: str):
     if code.upper() in list_airports:
         return {code.upper(): list_airports[code.upper()]}
-    else:
-        return {"Airport not found, please check your airport code again!"}
+    # else:
+    #     return {"Airport not found, please check your airport code again!"}
 
 # @app.get("/airport/{code}")
 # async def get_airport_name(code: str):
