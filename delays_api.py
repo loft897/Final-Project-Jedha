@@ -1,5 +1,6 @@
 from datetime import datetime
 from fastapi import FastAPI
+import os
 import requests
 import httpx
 import numpy as np
@@ -8,15 +9,13 @@ from fastapi import HTTPException
 import pickle
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
-from keys import api_key
+# from keys import api_key
+api_key = os.environ.get('API_KEY')
 
 
 
 # Création de l'application FastAPI
 app = FastAPI()
-
-
-
 
 # Chargement des modèles
 with open("./ml_models/classifier.pkl", "rb") as f:
