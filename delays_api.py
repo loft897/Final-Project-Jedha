@@ -99,8 +99,8 @@ async def get_weather(api_key: str, origine_city_name: str, dest_city_name: str,
     # Vérifier si les conditions météorologiques sont acceptables pour le vol
     if (origine_weather['main']['temp'] >= -20 and origine_weather['main']['temp'] <= 35 and dest_weather['main']['temp'] >= -20 and dest_weather['main']['temp'] <= 35 
         and origine_weather['wind']['speed'] <= 65 and dest_weather['wind']['speed'] <= 65
-        and ('rain' not in origine_weather or origine_weather['rain'].get('1h', 0) <= 10) and ('rain' not in dest_weather or dest_weather['rain'].get('1h', 0) <= 10)
-        and ('snow' not in origine_weather or origine_weather['snow'].get('1h', 0) <= 10) and ('snow' not in dest_weather or dest_weather['snow'].get('1h', 0) <= 10)
+        # and ('rain' not in origine_weather or origine_weather['rain'].get('1h', 0) <= 10) and ('rain' not in dest_weather or dest_weather['rain'].get('1h', 0) <= 10)
+        # and ('snow' not in origine_weather or origine_weather['snow'].get('1h', 0) <= 10) and ('snow' not in dest_weather or dest_weather['snow'].get('1h', 0) <= 10)
         and origine_weather['main']['humidity'] >= 50 and origine_weather['main']['humidity'] <= 85 and dest_weather['main']['humidity'] >= 50 and dest_weather['main']['humidity'] <= 85):
         return 1
     else:

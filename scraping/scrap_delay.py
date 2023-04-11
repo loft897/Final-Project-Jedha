@@ -7,7 +7,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement   # pour l'autocompletion
 from prettytable import PrettyTable
-from keys import BASE_URL
+BASE_URL = os.environ.get('BASE_URL')
+# from keys import BASE_URL
 
 class ScrapDelay(webdriver.Chrome):
     def __init__(self, driver_path=r"D:\Projets\Jedha\Final-Project-Jedha\ChromeDrivers", teardown=False, proxy=None):
