@@ -8,7 +8,6 @@ from fastapi import HTTPException
 import pickle
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
-from airports import list_airports
 from keys import api_key
 
 
