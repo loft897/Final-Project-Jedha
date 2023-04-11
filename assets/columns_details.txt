@@ -39,38 +39,38 @@ LATE_AIRCRAFT_DELAY:	Flag for a late aircraft delay
 
 
 
-MONTH : Mois
-DAY_OF_MONTH : Jour du mois (1-31)
-DAY_OF_WEEK : 		Jour de la semaine
-OP_UNIQUE_CARRIER : Code transporteur, correspond à OP_UNIQUE_CARRIER dans d'autres fichiers
-TAIL_NUM : Numéro de queue unique, correspond à TAIL_NUM dans d'autres fichiers
-OP_CARRIER_FL_NUM : Numéro de vol
-ORIGIN_AIRPORT_ID : ID de l'aéroport, correspond à ORIGIN_AIRPORT_ID dans d'autres fichiers
-ORIGIN : Abréviation de l'aéroport d'origine
-ORIGIN_CITY_NAME : 	Nom de la ville d'origine
-DEST_AIRPORT_ID : ID de l'aéroport de destination, correspond à l'ID de l'aéroport dans d'autres fichiers
-DEST : Abréviation de l'aéroport de destination
-DEST_CITY_NAME : 	Nom de la ville de destination
-CRS_DEP_TIME : 		Heure de départ prévue
-DEP_TIME : 		Heure de départ réelle
-DEP_DELAY_NEW : Retard de départ en minutes
-DEP_DEL15 : TARGET VARIABLE Binaire si retard de plus de 15 min, 1 est oui
-DEP_TIME_BLK : Blocage de l'heure de départ
-CRS_ARR_TIME :		Heure d'arrivée prévue
-ARR_TIME :		Heure d'arrivée réelle
-ARR_DELAY_NEW : retard à l'arrivée en minutes
-ARR_TIME_BLK : Blocage de l'heure d'arrivée
-CANCELLED :		Indicateur si le vol a été annulé
-CANCELLATION_CODE :	Code d'annulation
-CRS_ELAPSED_TIME :	Temps écoulé prévu pour le vol
-ACTUAL_ELAPSED_TIME :	Temps écoulé réel du vol
-DISTANCE : Distance du vol en miles
-DISTANCE_GROUP :		Groupe de distance du vol
-CARRIER_DELAY : Indicateur de retard du transporteur
-WEATHER_DELAY : Indicateur de retard dû aux conditions météorologiques
-NAS_DELAY : Indicateur pour un retard NAS
-SECURITY_DELAY : Indicateur d'un retard lié à la sécurité
-LATE_AIRCRAFT_DELAY : Indicateur d'un retard d'avion tardif
+MONTH: mois du vol
+DAY_OF_MONTH: jour du mois du vol
+DAY_OF_WEEK: jour de la semaine du vol (1 = Lundi, 2 = Mardi, etc.)
+OP_UNIQUE_CARRIER: identifiant unique du transporteur
+TAIL_NUM: numéro de queue de l'avion
+OP_CARRIER_FL_NUM: numéro de vol unique de la compagnie aérienne
+ORIGIN_AIRPORT_ID: identifiant unique de l'aéroport d'origine
+ORIGIN: code de l'aéroport d'origine
+ORIGIN_CITY_NAME: ville d'origine
+DEST_AIRPORT_ID: identifiant unique de l'aéroport de destination
+DEST: code de l'aéroport de destination
+DEST_CITY_NAME: ville de destination
+CRS_DEP_TIME: heure de départ prévue
+DEP_TIME: heure de départ effective
+DEP_DELAY_NEW: retard de départ en minutes
+DEP_DEL15: retard de départ en quinze minutes
+CRS_ARR_TIME: heure d'arrivée prévue
+ARR_TIME: heure d'arrivée effective
+ARR_DELAY_NEW: retard à l'arrivée en minutes
+CANCELLED: indicateur de vol annulé (1 = annulé)
+CANCELLATION_CODE: code de la raison de l'annulation
+CRS_ELAPSED_TIME: durée prévue du vol en minutes
+ACTUAL_ELAPSED_TIME: durée effective du vol en minutes
+DISTANCE: distance en miles
+DISTANCE_GROUP: groupe de distance
+CARRIER_DELAY: retard causé par la compagnie aérienne en minutes
+WEATHER_DELAY: retard causé par le temps en minutes
+NAS_DELAY: retard causé par le système national de l'espace aérien en minutes
+SECURITY_DELAY: retard causé par la sécurité en minutes
+LATE_AIRCRAFT_DELAY: retard causé par un avion retardé en minutes
+AIRLINE_ID: identifiant unique de la compagnie aérienne
+CARRIER_NAME: nom de la compagnie aérienne.
 
 
 
