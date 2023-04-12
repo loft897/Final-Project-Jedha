@@ -1,5 +1,6 @@
 from datetime import datetime
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 import os
 import requests
 import httpx
@@ -9,7 +10,6 @@ from fastapi import HTTPException
 import pickle
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
-from fastapi.responses import JSONResponse
 # from keys import api_key
 api_key = os.environ.get('API_KEY')
 
@@ -72,40 +72,40 @@ async def get_airport_name(code: str):
 
 
 
-# Endpoint pour verifier si les conditions météoroliques sont favorables pour un vol
-api_key = api_key
+# # Endpoint pour verifier si les conditions météoroliques sont favorables pour un vol
+# api_key = api_key
 
-@app.get("/weather")
-async def get_weather(api_key: str, origine_city_name: str, dest_city_name: str, departure_date: str, departure_time: str, arrival_date: str, arrival_time: str):
-    # Convertir les dates et heures de départ et d'arrivée en timestamp UNIX
-    departure_timestamp = int(datetime.timestamp(datetime.strptime(f"{departure_date} {departure_time}", '%Y-%m-%d %H:%M')))
-    arrival_timestamp = int(datetime.timestamp(datetime.strptime(f"{arrival_date} {arrival_time}", '%Y-%m-%d %H:%M')))
+# @app.get("/weather")
+# async def get_weather(api_key: str, origine_city_name: str, dest_city_name: str, departure_date: str, departure_time: str, arrival_date: str, arrival_time: str):
+#     # Convertir les dates et heures de départ et d'arrivée en timestamp UNIX
+#     departure_timestamp = int(datetime.timestamp(datetime.strptime(f"{departure_date} {departure_time}", '%Y-%m-%d %H:%M')))
+#     arrival_timestamp = int(datetime.timestamp(datetime.strptime(f"{arrival_date} {arrival_time}", '%Y-%m-%d %H:%M')))
     
-    # Récupérer les informations météorologiques pour la ville de départ à la date et heure de départ
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={origine_city_name}&appid={api_key}&dt={departure_timestamp}&lang=fr&units=metric"
-    # async with httpx.AsyncClient() as client:
-    #     response = await client.get(url)
-    response = requests.get(url)
-    data = response.json()
-    origine_weather = data
+#     # Récupérer les informations météorologiques pour la ville de départ à la date et heure de départ
+#     url = f"https://api.openweathermap.org/data/2.5/weather?q={origine_city_name}&appid={api_key}&dt={departure_timestamp}&lang=fr&units=metric"
+#     # async with httpx.AsyncClient() as client:
+#     #     response = await client.get(url)
+#     response = requests.get(url)
+#     data = response.json()
+#     origine_weather = data
     
-    # Récupérer les informations météorologiques pour la ville d'arrivée à la date et heure d'arrivée
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={dest_city_name}&appid={api_key}&dt={arrival_timestamp}&lang=fr&units=metric"
-    # async with httpx.AsyncClient() as client:
-    #     response = await client.get(url)
-    response = requests.get(url)
-    data = response.json()
-    dest_weather = data
+#     # Récupérer les informations météorologiques pour la ville d'arrivée à la date et heure d'arrivée
+#     url = f"https://api.openweathermap.org/data/2.5/weather?q={dest_city_name}&appid={api_key}&dt={arrival_timestamp}&lang=fr&units=metric"
+#     # async with httpx.AsyncClient() as client:
+#     #     response = await client.get(url)
+#     response = requests.get(url)
+#     data = response.json()
+#     dest_weather = data
 
-    # Vérifier si les conditions météorologiques sont acceptables pour le vol
-    if (origine_weather['main']['temp'] >= -20 and origine_weather['main']['temp'] <= 35 and dest_weather['main']['temp'] >= -20 and dest_weather['main']['temp'] <= 35 
-        and origine_weather['wind']['speed'] <= 65 and dest_weather['wind']['speed'] <= 65
-        # and ('rain' not in origine_weather or origine_weather['rain'].get('1h', 0) <= 10) and ('rain' not in dest_weather or dest_weather['rain'].get('1h', 0) <= 10)
-        # and ('snow' not in origine_weather or origine_weather['snow'].get('1h', 0) <= 10) and ('snow' not in dest_weather or dest_weather['snow'].get('1h', 0) <= 10)
-        and origine_weather['main']['humidity'] >= 50 and origine_weather['main']['humidity'] <= 85 and dest_weather['main']['humidity'] >= 50 and dest_weather['main']['humidity'] <= 85):
-        return 1
-    else:
-        return 0
+#     # Vérifier si les conditions météorologiques sont acceptables pour le vol
+#     if (origine_weather['main']['temp'] >= -20 and origine_weather['main']['temp'] <= 35 and dest_weather['main']['temp'] >= -20 and dest_weather['main']['temp'] <= 35 
+#         and origine_weather['wind']['speed'] <= 65 and dest_weather['wind']['speed'] <= 65
+#         # and ('rain' not in origine_weather or origine_weather['rain'].get('1h', 0) <= 10) and ('rain' not in dest_weather or dest_weather['rain'].get('1h', 0) <= 10)
+#         # and ('snow' not in origine_weather or origine_weather['snow'].get('1h', 0) <= 10) and ('snow' not in dest_weather or dest_weather['snow'].get('1h', 0) <= 10)
+#         and origine_weather['main']['humidity'] >= 50 and origine_weather['main']['humidity'] <= 85 and dest_weather['main']['humidity'] >= 50 and dest_weather['main']['humidity'] <= 85):
+#         return 1
+#     else:
+#         return 0
     
 @app.get("/comparison")
 async def predict_delay(airline: str, flight_number: int, position: int):
