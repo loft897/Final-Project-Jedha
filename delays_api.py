@@ -9,6 +9,7 @@ from fastapi import HTTPException
 import pickle
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
+from fastapi.responses import JSONResponse
 # from keys import api_key
 api_key = os.environ.get('API_KEY')
 
@@ -106,25 +107,26 @@ async def get_weather(api_key: str, origine_city_name: str, dest_city_name: str,
     else:
         return 0
     
-# Endpoint pour recupérer les données d'un site partenaire
 @app.get("/comparison")
 async def predict_delay(airline: str, flight_number: int, position: int):
     position = 3
     from scraping.scrap_delay import ScrapDelay
-    try:
-        with ScrapDelay(teardown=False) as bot:
-            bot.land_first_page()
-            bot.cookies()
-            bot.select_airline(airline=airline)
-            bot.type_flight_number(flight_number=flight_number)
-            bot.select_date(position=position)
-            bot.search()
-            results = bot.results()
-            bot.quit()
 
-    except:
-        raise HTTPException(status_code=404, detail="Error while obtaining data, please try again later!")
+    results = {}  # Initialize an empty results dictionary
 
+    # Removed the try-except block
+    with ScrapDelay(teardown=False) as bot:
+        bot.land_first_page()
+        bot.cookies()
+        bot.select_airline(airline=airline)
+        bot.type_flight_number(flight_number=flight_number)
+        bot.select_date(position=position)
+        bot.search()
+        results = bot.results()
+        bot.quit()
+
+    if not results:
+        return JSONResponse(status_code=200, content={"error": "Error while obtaining data, please try again later!"})
 
     # Convertir les heures programmées et réelles en objets datetime
     scheduled_time = datetime.strptime(results['scheduled_time'].split()[0], '%H:%M')
@@ -144,7 +146,8 @@ async def predict_delay(airline: str, flight_number: int, position: int):
     # Ajouter les nouvelles clés et valeurs au dictionnaire results
     results['duration'] = duration
     results['status'] = status
-    return results
+    return JSONResponse(status_code=200, content=results)
+
     
 
 # Endpoint pour prédire si un vol est en retard ou pas et le delai de retard
