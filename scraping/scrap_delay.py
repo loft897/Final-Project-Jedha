@@ -9,11 +9,11 @@ from selenium.webdriver.remote.webelement import WebElement   # for autocompleti
 from prettytable import PrettyTable
 
 # Get the base URL from an environment variable or a file
+from keys import BASE_URL
 BASE_URL = os.environ.get('BASE_URL')
-# from keys import BASE_URL
 
 class ScrapDelay(webdriver.Chrome):
-    def __init__(self, driver_path=r"D:\Projets\Jedha\Final-Project-Jedha\ChromeDrivers", teardown=False, proxy=None):
+    def __init__(self, driver_path="/usr/local/bin/chromedriver", teardown=False, proxy=None):
         # Initialize the webdriver
         self.driver_path = driver_path
         self.teardown = teardown
@@ -24,14 +24,13 @@ class ScrapDelay(webdriver.Chrome):
 
         # Add the headless option to run Chrome in the background
         chrome_options.add_argument("--headless")
-        chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
         chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.add_argument("--no-sandbox")
 
         if self.proxy is not None:
             chrome_options.add_argument('--proxy-server={}'.format(self.proxy))
 
-        super().__init__(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+        super().__init__(executable_path=self.driver_path, options=chrome_options)
         self.implicitly_wait(5)
 
     def __exit__(self, exc_type, exc_val, exc_tb):
