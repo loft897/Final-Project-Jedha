@@ -10,7 +10,7 @@ from fastapi import HTTPException
 import pickle
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
-from keys import api_key
+# from keys import api_key
 api_key = os.environ.get('API_KEY')
 
 
