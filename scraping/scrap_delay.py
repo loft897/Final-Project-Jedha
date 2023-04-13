@@ -7,25 +7,23 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement   # for autocompletion
 from prettytable import PrettyTable
+from selenium.webdriver.chrome.options import Options
 
 # Get the base URL from an environment variable or a file
 # from keys import BASE_URL
 BASE_URL = os.environ.get('BASE_URL')
 
-class ScrapDelay(webdriver.Chrome):
-    def __init__(self, driver_path="/usr/local/bin/chromedriver", teardown=False, proxy=None):
-        # Initialize the webdriver
+class ScrapDelay():
+    def __init__(self, driver_path: str = "/usr/local/bin/chromedriver", teardown: bool = True):
+        chrome_options = Options()
+        chrome_options.add_argument('--disable-dev-shm-usage') # ajout de l'option
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--window-size=1920x1080")
         self.driver_path = driver_path
         self.teardown = teardown
-        self.proxy = proxy
-        os.environ['PATH'] += ';' + self.driver_path
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
-
-        # Add the headless option to run Chrome in the background
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--disable-dev-shm-usage")
-        chrome_options.add_argument("--no-sandbox")
+        self.driver = webdriver.Chrome(executable_path=self.driver_path, options=chrome_options)
 
         if self.proxy is not None:
             chrome_options.add_argument('--proxy-server={}'.format(self.proxy))
