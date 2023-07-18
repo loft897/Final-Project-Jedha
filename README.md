@@ -1,7 +1,10 @@
 # Final-Project-Jedha
+
 Projet final pour valider le bloc 6 de la certification et la fin de formation en Data Science chez Jedha. L'objectif est de creer et deployer un model de machine learning qui va predirer les retards sur les departs de vols aux USA.
 
 lien du dataset : https://galus-fotso-files.s3.eu-west-3.amazonaws.com/flights_usa_2019.csv
+
+Lien de l'api : https://f-delay-api-0599001276a2.herokuapp.com/
 
 Dans ce notebook, nous essayons de visualiser les vols des compagnies aeriennes americaines de janvier 2019 à décembre 2019 et essayons de développer un modèle pour prédire ou prévoir les retards des vols au décollage. Dans la visualisation, toutes les informations des données ne seront pas capturées par seulement quelques-unes car le chargement du dataset complet sera très lourd. Aussi pour la prédiction, nous allons essayer de développer les meilleurs modèles possible pour avoir un resultat effiscient sur notre apllication de prediction.
 
